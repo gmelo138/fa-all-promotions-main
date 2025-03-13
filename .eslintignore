@@ -1,8 +1,0 @@
-.eslintrc.js
-parcel.js
-src/api/*.js
-
-# Lighthouse reports
-.lighthouseci
-.lighthouseci/
-.eslintcache

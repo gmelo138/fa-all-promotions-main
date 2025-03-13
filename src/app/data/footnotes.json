@@ -1,9 +1,0 @@
-{
-  "schema": "footnotes.schema.json",
-  "Footnotes": [
-    {
-      "Key": "wltp_1",
-      "Text": "Prices shown on pages with general vehicle information, such as the model page, Build & Price, are from the corporate site, audi.ca and are therefore MSRP (Manufacturer’s Suggested Retail Price), and (i) are for information only; and (ii) exclude taxes, levies (a/c, tires), license, insurance, registration, other options and any dealer admin fees. Actual selling prices and terms are set by dealers. Prices shown on the new car and used car inventory search pages are selling prices, as set by dealers, including applicable fees such as freight and PDI, environmental levies (for new vehicles) and any dealer administration fees, but do not include sales taxes. Please note that prices shown on the Estimate Payments page will be MSRP if accessed via Build & Price (for information purposes) and will be selling price if accessed via the new or used car inventory search pages (actual selling prices). On the general vehicle information pages, models are shown for illustration purposes only and may include features that are not available on the Canadian model. While efforts are made to ensure accuracy, as errors may occur or availability may change, please see dealer for complete details and current model specifications. All rights reserved. Audi AG trademarks are used under license."
-    }
-  ]
-}
