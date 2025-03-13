@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="cola-api-url" content="https://onegraph.audi.com/graphql" />
+  <meta name="vue-agw-endpoint" content="https://pre.web-api.audi.com" />
+  <title>Feature App Digital-Leads</title>
+  <style>
+    @font-face {
+      font-weight: 400 700;
+      font-family: 'AudiType';
+      font-style: normal;
+      font-stretch: 100% 130%;
+      src: url(https://assets.audi.com/audi-fonts/1/AudiTypeVF.woff2) format('woff2-variations');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "audi-iconfont-3.18";
+      src: url(https://react.ui.audi/assets/webfonts/icon/audi-iconfont_3.18.woff2) format('woff2-variations');
+      font-display: block;
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <feature-app id="" src="fh/app.js" server-src="fh/app.node.js"></feature-app>
+
+  <script type="module" src="<%= csrBundleUrl %>" defer></script>
+</body>
+
+</html>

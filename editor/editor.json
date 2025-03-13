@@ -1,0 +1,97 @@
+{
+  "properties": {
+    "margins": {
+      "title": "Margins",
+      "properties": {
+        "marginTopDesktop": {
+          "title": "Margin Top (Desktop)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        },
+        "marginBottomDesktop": {
+          "title": "Margin Bottom (Desktop)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        },
+        "marginTopTablet": {
+          "title": "Margin Top (Tablet)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        },
+        "marginBottomTablet": {
+          "title": "Margin Bottom (Tablet)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        },
+        "marginTopMobile": {
+          "title": "Margin Top (Mobile)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        },
+        "marginBottomMobile": {
+          "title": "Margin Bottom (Mobile)",
+          "type": "number",
+          "maxLength": 4,
+          "options": {
+            "inputAttributes": {
+              "placeholder": "All entered values are converted to px"
+            }
+          }
+        }
+      },
+      "options": {
+        "disable_collapse": true,
+        "disable_edit_json": true,
+        "disable_properties": true
+      }
+    },
+    "accordian": {
+      "title": "Accordian",
+      "properties": {
+        "showAccordian": {
+          "title": "Display Accordian (Mobile & Tablet)",
+          "type": "string",
+          "format": "radio",
+          "enum": ["yes", "no"],
+          "options": {
+            "enum_titles": ["Yes", "No"]
+          },
+          "default": "yes"
+        }
+      },
+      "options": {
+        "disable_collapse": true,
+        "disable_edit_json": true,
+        "disable_properties": true
+      }
+    }
+  },
+  "options": {
+    "disable_collapse": true
+  }
+}

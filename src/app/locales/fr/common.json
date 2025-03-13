@@ -1,0 +1,238 @@
+{
+  "promotions": {
+    "description": "Audi propose des promotions nationales et régionales à nos clients. Les offres régionales sont spécifiques pour certaines zones et peuvent ne pas être disponibles dans d'autres régions. Pour chaque région, notez que seuls les concessionnaires participants sont répertoriés.",
+    "dag": {
+      "NAT": "Offre du concessionnaire",
+      "MTL": "Offre Montreal",
+      "VAN": "Offre Vancouver",
+      "GTA": "Offre Toronto"
+    },
+    "offers": {
+      "Lease": "Location",
+      "Finance": "Financement",
+      "Cash": "En espèces",
+      "apr": "Taux annuel en pourcentage",
+      "upTo": "Jusqu’à",
+      "months": "mois",
+      "includesRateRed": "y compris la réduction du taux.",
+      "rateReduction": "Réduction du taux",
+      "expires": "Expire le",
+      "monthlyPayment": "Mensualité à partir de",
+      "biWeeklyPayment": "Aux deux semaines paiements à partir de",
+      "weeklyPayment": "Hebdomadaire paiements à partir de",
+      "with": "avec acompte de",
+      "downPayment": "down payment",
+      "cashOffer": "Recevez une remise pour achat au comptant de",
+      "offerPlus": "Offer Plus",
+      "audiCredit": "Audi Credit"
+    },
+    "tabs": {
+      "Lease": {
+        "tabName": "Location",
+        "leaseAt": "Taux de location à partir de",
+        "leaseRate": "{{leaseRate}}%*",
+        "for": "pour",
+        "months": "mois",
+        "apr": "TAP en vigueur de",
+        "paymentsAt": "paiements à partir de",
+        "leaseTerm": {
+          "weekly": "Hebdomadaire* paiements à partir de",
+          "monthly": "Mensuel* paiements à partir de",
+          "biweekly": "Aux deux semaines* paiements à partir de"
+        },
+        "leaseMinPayment": "{{leaseMinPayment}}*",
+        "leaseApr": "{{leaseApr}}%",
+        "downPayment": "Acompte de*",
+        "withUpToA": "Avec remise Audi allant jusqu’à",
+        "audiCredit": ""
+      },
+      "Finance": {
+        "tabName": "Financement",
+        "financeAt": "Taux de financement à partir de",
+        "for": "pour",
+        "months": "mois",
+        "apr": "TAP en vigueur de",
+        "paymentsAt": "paiements à partir de",
+        "downPayment": "Acompte de*",
+        "withUpToA": "Avec remise Audi allant jusqu’à",
+        "audiCredit": "",
+        "ratePercent": "{{ratePercent}}%*",
+        "financeApr": "{{financeApr}}%",
+        "financeMinimumPayment": "{{financeMinimumPayment}}*",
+        "financeRate": "{{financeRate}}%*"
+      },
+      "Cash": {
+        "tabName": "En espèces",
+        "cashOfferText": "Recevez un crédit d’achat en espèces pouvant atteindre"
+      },
+      "OfferPlus": {
+        "offerPlus": "Offer Plus"
+      }
+    },
+    "cta": {
+      "viewInventory": "Voir les stocks",
+      "buildYourAudi": "Configurer votre Audi",
+      "estimateSavings": "Estimez vos versements",
+      "contactDealer": "Joindre le concessionnaire",
+      "whyBuyCertified": "Pourquoi un Audi Certifié <i>:plus</i>?",
+      "cpoFAQ": "FAQ – Audi Certifié <i>:plus</i>",
+      "cancel": "Annuler",
+      "show": "Montrer",
+      "results": "Montrer {{number}} résultats",
+      "result": "Montrer {{number}} résultat",
+      "ongoingResults": "résultats",
+      "ongoingResult": "résultat",
+      "clearFilter": "Effacer le filtre"
+    },
+    "filter": {
+      "allFilters": "Tous les filtres",
+      "components": {
+        "listOfAllFilters": {
+          "A3": "A3",
+          "A4": "A4",
+          "A5": "A5",
+          "A6": "A6",
+          "A7": "A7",
+          "A8": "A8",
+          "Q3": "Q3",
+          "Q5": "Q5",
+          "Q5e": "Q5 TFSI e",
+          "Q4": "Q4 e-tron",
+          "Q7": "Q7",
+          "Q8": "Q8",
+          "Q8etron": "Q8 e-tron",
+          "SQ8etron": "SQ8 e-tron",
+          "S3": "S3",
+          "S4": "S4",
+          "S5": "S5",
+          "S6": "S6",
+          "S7": "S7",
+          "S8": "S8",
+          "SQ5": "SQ5",
+          "SQ7": "SQ7",
+          "SQ8": "SQ8",
+          "RS3": "RS3",
+          "RS5": "RS5",
+          "RS6": "RS6",
+          "RS7": "RS7",
+          "RSQ8": "RS Q8",
+          "R8": "R8",
+          "TT": "TT",
+          "TTS": "TTS",
+          "TTRS": "TT RS",
+          "etron": "e-tron",
+          "etrons": "e-tron S",
+          "etrongt": "e-tron GT",
+          "rsetrongt": "RS e-tron GT",
+          "allroad quattro": "allroad quattro",
+          "Avant": "Avant",
+          "Cabriolet": "Cabriolet",
+          "Coupe": "Coupé",
+          "Roadster": "Roadster",
+          "Sedan": "Berline",
+          "Sportback": "Sportback",
+          "Spyder": "Spyder",
+          "SUV": "VUS",
+          "MTL": "Région métropolitaine de Montréal",
+          "NAT": "National",
+          "GTA": "Région du Grand Toronto",
+          "VAN": "Région du Grand Vancouver",
+          "APA": "Alberta et les Prairies",
+          "NEW-CAR": "Véhicules neufs",
+          "USED-CAR": "Audi Certifié",
+          "modelYearRange": "{{min}} - {{max}}",
+          "modelYearPreposition": "à",
+          "singleModelYear": "{{year}}"
+        },
+        "listOfFilterTitles": {
+          "filters": "Filtres",
+          "modelFamily": "Gamme de modèles",
+          "bodyType": "Type de carrosserie",
+          "region": "Région",
+          "modelYear": "Année-modèle",
+          "inventoryType": "Type de stocks"
+        },
+        "regionFilter": {
+          "dag": {
+            "MTL": "Montreal",
+            "NAT": "National",
+            "GTA": "Toronto",
+            "VAN": "Vancouver"
+          },
+          "dealerOffers": "tbd",
+          "tooltip": {
+            "NEW-CAR": "Offres disponibles pour les modèles de véhicules neufs. Demandez les détails à votre concessionnaire",
+            "USED-CAR": "Les offres Audi Certifié : plus sont disponibles pour les véhicules certifiés qui ont subi une inspection en plus de 300 points et présentent des avantages supplémentaires, comme une garantie limitée prolongée. Demandez les détails à votre concessionnaire",
+            "NAT": "Ces offres sont valables chez tous les concessionnaires Audi à l’échelle du Canada",
+            "dagTooltip": "Disponible chez les revendeurs suivants:",
+            "dagTooltip1": "Ces offres sont valables chez tous les concessionnaires de la région de",
+            "dagTooltip2": "suivants :",
+            "dagWithDealerAssociated1": "Ces offres sont valables chez certains concessionnaires de la région de",
+            "dagWithDealerAssociated2": ". Le concessionnaire que vous avez sélectionné est dans la région de",
+            "dagWithDealerAssociated3": "",
+            "dealerOffers": "Ces offres sont seulement valables chez le concessionnaire que vous avez sélectionné."
+          }
+        },
+        "selected": "sélectionné"
+      }
+    },
+    "url": {
+      "estimateSavings": "https://audipaymentestimator.ca/fr",
+      "contactDealer": "https://www.audi.ca/ca/web/fr/forms/contact-dealer.html?dealer_id=49&partner_id=&dag={{dag}}&modelid={{modelid}}",
+      "viewInventoryBasic": "https://www.audi.ca/ca/web/fr/inventory.html",
+      "viewInventoryNew": "https://www.audi.ca/ca/web/fr/inventory.html?carline={{carline}}&type={{type}}",
+      "viewInventoryUsed": "https://www.audi.ca/ca/web/fr/inventory.html?carline={{carline}}&type={{type}}&year={{year}}:{{year}}",
+      "whyBuyCertified": "https://www.audi.ca/ca/web/fr/cpo/layer/Why-buy-certified.html",
+      "cpoFAQ": "https://www.audi.ca/ca/web/fr/cpo.html#layer=/ca/web/fr/cpo/layer/faq.html"
+    },
+    "buttons": {
+      "loadMore": "Charger plus d'offres"
+    },
+    "specialOffer": "Offre spéciale",
+    "legal": "Mention légale",
+    "disclaimer": "Audi offers both National and Regional promotions to our customers. National offers are redeemable at any Audi dealership across the country, while Regional offers are specific to certain areas and may not be available in other regions. For each region, note that only  participating dealerships are listed.",
+    "msrp": "PDSF à partir de",
+    "startingFrom": "À partir de:",
+    "cpoPrice": "Voir la page d'inventaire pour les prix locaux",
+    "errorPage": {
+      "noResults": "Aucun résultat ne correspond à votre recherche.",
+      "contentInfo": "Modifiez vos filtres pour trouver des offres ou communiquez avec votre concessionnaire pour en savoir plus.",
+      "contactDealer": "Communiquer avec un concessionnaire",
+      "viewInventory": "Afficher les véhicules en stock",
+      "viewInventoryLink": "https://www.audi.ca/ca/web/fr/inventory.html",
+      "cadLink": "https://www.audi.ca/ca/web/fr/forms/contact-dealer.html"
+    },
+    "clearFilters": "Rétablir les paramètres par défaut",
+    "metadata": {
+      "titles": {
+        "noRegionNoCarline": "Audi Promotions > Accueil",
+        "regionNoCarline1": "Offres de",
+        "regionNoCarline2": "> Audi Promotions > Accueil",
+        "noRegionCarline": "Offres > Offers > Accueil",
+        "regionCarline1": "Offres > Offres > Offres de",
+        "regionCarline2": "> Accueil"
+      },
+      "descriptions": {
+        "noRegionNoCarline": "Découvrez les offres sur les véhicules Audi neufs en vigueur au Canada.",
+        "regionNoCarline": "Découvrez les offres sur les véhicules Audi neufs en vigueur chez votre concessionnaire de",
+        "noRegionCarline1": "Découvrez les offres sur le",
+        "noRegionCarline2": "en vigueur au Canada.",
+        "regionCarline1": "Découvrez les offres sur le",
+        "regionCarline2": "en vigueur au Canada."
+      }
+    },
+    "cpoImageDisclaimer": "*Image du modèle montrée à titre de référence seulement.",
+    "certifiedDisclaimer": "Les véhicules d’occasion Audi Certifié :plus font l’objet d’une inspection rigoureuse et offrent d’autres avantages. Demandez les détails à votre concessionnaire.",
+    "regionDisclaimer": "Sélectionnez une ville pour voir les concessionnaires participants aux offres annoncées. Veuillez noter que seuls les concessionnaires participants sont inclus. Les offres nationales sont valides dans toutes les concessions Audi.",
+    "certified": "Certifié",
+    "plus": " :plus",
+    "offer": "Offre",
+    "offerEnds": "L'offre se termine (tbc)",
+    "CPO": {
+      "finance": {
+        "upTo": "Jusqu’à",
+        "months": "mois"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "JSON schema for footnotes",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Footnotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string"
+          },
+          "Text": {
+            "type": "string"
+          }
+        },
+        "required": ["Key", "Text"]
+      }
+    }
+  }
+}

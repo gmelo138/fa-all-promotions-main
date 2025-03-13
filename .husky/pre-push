@@ -1,0 +1,11 @@
+npm run test
+
+npm run appstore-imgcheck
+
+npm run version:check
+
+npm run lint:check
+
+npm run format:check 
+
+npx tsc --noEmit
