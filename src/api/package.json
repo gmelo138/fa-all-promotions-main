@@ -1,0 +1,20 @@
+{
+  "name": "fa-all-promotions-api",
+  "version": "0.1.0",
+  "description": "API package containing lambda functions forming a backend-for-frontend for the Feature App.",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Narshop",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.115",
+    "@types/node": "^16.18.31",
+    "esbuild": "^0.25.0",
+    "serverless": "^3.35.2",
+    "serverless-offline": "^13.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

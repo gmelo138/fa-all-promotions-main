@@ -1,0 +1,5 @@
+{
+  "app": "npx ts-node --prefer-ts-exts --dir infrastructure index.ts",
+  "requireApproval": "never",
+  "context": {}
+}

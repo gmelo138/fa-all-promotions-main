@@ -1,0 +1,21 @@
+name: Audi RED Toolkit
+on:
+  push:
+    branches: [main]
+
+jobs:
+  audired-toolkit:
+    uses: RED-Internal-Development/audi-red-toolkit/.github/workflows/audired-tookit.yml@main
+    with:
+      source_file: 'docs/fa-all-promotions'
+      destination_repo: 'RED-Internal-Development/audi-red-documentation'
+      destination_folder: 'docs/feature_apps/NARSHOP'
+      destination_branch: 'NARSHOP'
+      user_email: 'redsys1@audired.ca'
+      user_name: 'audired'
+      user_actor: ${{ github.actor }}
+      enable_doc_sync: true
+      enable_scanoss: false
+    secrets:
+      DOC_SYNC_KEY: ${{ secrets.DOC_SYNC_KEY }}
+      SCANOSS_KEY: ${{ secrets.SCANOSS_KEY }}

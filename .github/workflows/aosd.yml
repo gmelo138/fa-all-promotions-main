@@ -1,0 +1,53 @@
+# AOSD report generation
+#
+# Triggered by every push on a branch or by a new release, we run this workflow to generate the report file (json) compatible to AOSD 2.1 (job: 'generate-aosd-report')
+#
+# In this workflow the following important steps are performed :
+# - Install only production dependencies (using --production flag, to avoid installing deps under devDependencies)
+# - Avoid pre and post scripts to run (using --ignore-scripts)
+# - Generate AOSD v2.1 json (using oneaudi/oneaudi-aosd-json-generator-action it generates the AOSD2.1 compatible report file, and uploads the report to the build artifact)
+#
+# The following GitHub repository secrets are necessary for a successful workflow execution:
+#
+#
+#
+# If you would like to skip the ci workflow to execute, simply add '[ci skip]' to your commit message.
+# This mechanism is also used for version bumping (in order to avoid a subsequent workflow run).
+#
+
+name: 'AOSD Report'
+
+on:
+  push:
+    branches:
+      - '**'
+  release:
+    types: [published]
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  generate-aosd-report:
+    name: 'AOSD Report'
+    if: ${{ !contains(github.event.head_commit.message, '[ci skip]') && github.actor != 'dependabot[bot]'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Setup node
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+
+      - name: Generate AOSD v2.1 json
+        uses: oneaudi/oneaudi-aosd-json-generator-action@v2.2.1
+        with:
+          package_manager: npm
+          production_only: true
+        continue-on-error: true

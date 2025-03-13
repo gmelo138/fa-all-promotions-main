@@ -1,0 +1,277 @@
+{
+  "name": "@oneaudi/fa-all-promotions",
+  "version": "1.6.1",
+  "description": "All Promotions page. Includes different offers (New and CPO vehicles) for different regions (National, Toronto, Montreal, Vancouver) with full functional filters",
+  "engines": {
+    "node": "^22"
+  },
+  "appStore": {
+    "appId": "fff25d22-222a-4e1d-b00d-059c483f9a6e",
+    "title": "OneAudi Feature App All Promotions",
+    "shortDescription": "OneAudi Feature App All Promotions",
+    "description": "All Promotions page. Includes different offers (New and CPO vehicles) for different regions (National, Toronto, Montreal, Vancouver) with full functional filters",
+    "team": "NARSHOP",
+    "agileReleaseTrain": "oneAudi OS",
+    "supplier": "NARSHOP",
+    "contactPerson": {
+      "name": "Ekin Nalbantoglu",
+      "chatUrl": "https://chat.collaboration.msi.audi.com/group/oneaudi-os-art"
+    },
+    "clientSideBundleUrl": "{{baseUrl}}/remote.js",
+    "demoUrl": "{{baseUrl}}/index.html",
+    "devChatUrl": "https://chat.collaboration.msi.audi.com/channel/Team-NarShop",
+    "createTicketUrl": "https://github.com/oneaudi/fa-all-promotions/issues/new",
+    "mediaItems": [],
+    "markets": [
+      "NAR"
+    ],
+    "contentManagementSystems": [
+      "Adobe Experience Manager",
+      "Adobe Experience Manager Headless"
+    ],
+    "extra": {
+      "featureHub": {
+        "baseUrl": "{{baseUrl}}",
+        "clientSideBundleUrl": "fh/app.js"
+      },
+      "oneCMS": {
+        "contentFragmentModel": "{{baseUrl}}/models/root.json"
+      }
+    },
+    "brands": [
+      "A"
+    ],
+    "categories": [
+      "Stock Car"
+    ],
+    "documentationBundleUrl": "{{baseUrl}}/docs/remote.js"
+  },
+  "scripts": {
+    "serve": "oneaudi-os-cli serve",
+    "serve:ssr": "cross-env NODE_OPTIONS='--enable-source-maps' serve-feature-apps --dir=dist/app --verbose --verbose | pino-pretty",
+    "serve:ssr:ci": "cross-env NODE_ENV=production serve-feature-apps --dir=dist/app --cache",
+    "serve:docs": "node --experimental-json-modules node_modules/.bin/webpack serve --config docs/webpack.config.mjs --node-env development",
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all -p build:*",
+    "postbuild": "cp -rv static dist/app && (cp -av protected dist/app || true) && cp -av README.md dist/app/protected",
+    "build:fh": "npm-run-all -p build:fh:*",
+    "build:fh:csr": "oneaudi-os-cli build --scope=fh:csr",
+    "build:fh:ssr": "oneaudi-os-cli build --scope=fh:ssr",
+    "build:docs": "node --experimental-json-modules node_modules/.bin/webpack build --config docs/webpack.config.mjs --node-env production",
+    "watch:fh:csr": "oneaudi-os-cli build development --watch --scope=fh:csr",
+    "watch:fh:ssr": "oneaudi-os-cli build development --watch --scope=fh:ssr",
+    "dev:ssr": "npm-run-all -p watch:fh:* serve:ssr",
+    "build:demo": "oneaudi-os-cli build --scope=demo",
+    "build:models": "tsc -p models/tsconfig.json && node dist/models/create-models.js",
+    "prepare": "husky",
+    "format": "prettier --write \"**/*.{ts,tsx,json,js,jsx,html,yml,md,mdx}\" \"!**/dist/**\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,js,jsx,html,yml,md,mdx}\" \"!**/dist/**\" \"!**/docs/**\"",
+    "format:docs": "prettier --write \"docs/**/*.{md,mdx}\"",
+    "typescript:watch": "tsc --noEmit --watch",
+    "typescript:check": "tsc --noEmit",
+    "lighthouse": "lhci autorun --collect.startServerCommand=\"npm run lighthouse:serve\" --collect.startServerReadyPattern=\"Serving feature-app at http://localhost:3000\" ; ls .lighthouseci/*.html | xargs -n 1 npx opener",
+    "lighthouse:ci": "lhci autorun",
+    "lighthouse:serve": "cross-env NODE_ENV=production serve-feature-apps --dir=dist/app --cache --verbose --verbose",
+    "appstore-imgcheck": "node node_modules/@oneaudi/oneaudi-os-appstore-imgcheck/dist/appstore-imgcheck/lib/index.js",
+    "lint": "eslint --config .eslintrc.js --cache --fix --ext .ts,.tsx,.js,.jsx src/",
+    "lint:check": "eslint --config .eslintrc.js --cache --ext .ts,.tsx,.js,.jsx src/",
+    "registerApp": "node scripts/register-app.js",
+    "setup-repo": "npm run format && node scripts/setup_repo.js",
+    "test": "jest --coverage",
+    "test:dev": "jest --watch",
+    "deploy:ci": "node scripts/confirm-deploy.js && $npm_execpath run appstore-imgcheck && npx --yes cdk deploy",
+    "deploy": "node scripts/confirm-deploy.js && node scripts/check-env-file.js && export $(grep -v '^#' ./.env | sed 's/#.*//' | xargs) && npm run deploy:ci",
+    "test:e2e-clean": "rimraf tests/cypress/reports",
+    "test:e2e-run": "start-server-and-test serve:ssr:ci http-get://localhost:3000 'cypress run'",
+    "test:e2e-open": "start-server-and-test dev:ssr http-get://localhost:3000 'cypress open'",
+    "test:e2e-report": "mochawesome-merge ./tests/cypress/reports/json/*.json -o tests/cypress/reports/json/output.json; marge tests/cypress/reports/json/output.json  --reportDir tests/cypress/reports/html --assetsDir tests/cypress/reports/html/assets --reportPageTitle 'fa-all-promotions  - Acceptance Tests' --reportFilename index.html; cp -r tests/cypress/videos tests/cypress/reports/html/videos",
+    "test:e2e": "npm-run-all -s -c test:e2e-clean test:e2e-run test:e2e-report",
+    "version:check": "node scripts/check_version.js",
+    "captureWebVitals": "node scripts/capture_webvitals.js",
+    "ssr:check": "node scripts/check_ssr.js",
+    "convert:md-json": "node scripts/changelog-md-to-json.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oneaudi/fa-all-promotions.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "Bimm",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "i18next": "^20.3.2",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "react-i18next": "^11.16.2",
+    "@apollo/client": "^3.5.10",
+    "@apollo/react-hooks": "^4.0.0",
+    "@audi/audi-ui-react": "^3.7.0",
+    "@feature-hub/core": "^3.7.0",
+    "@feature-hub/logger": "^3.7.0",
+    "@feature-hub/module-loader-amd": "^3.7.0",
+    "@feature-hub/react": "^3.7.0",
+    "@oneaudi/oneaudi-os-react": "^8.2.2",
+    "@oneaudi/static-demo-integrator": "^12.0.10",
+    "@oneaudi/audi-tracking-service": "^1.2.9",
+    "@volkswagen-onehub/audi-content-service": "^0.1.0",
+    "@volkswagen-onehub/audi-env-config-service": "^0.1.2",
+    "@volkswagen-onehub/oneaudi-os-adapter-tracking": "^2.1.0",
+    "@volkswagen-onehub/gfa-service-config-provider": "^0.10.0",
+    "@volkswagen-onehub/oneaudi-os-react": "^5.0.1",
+    "@volkswagen-onehub/oneaudi-os-adapter-config": "^0.1.1",
+    "@volkswagen-onehub/oneaudi-os-adapter-locale": "^1.0.2",
+    "@volkswagen-onehub/oneaudi-os-adapter-logger": "^1.0.5",
+    "@volkswagen-onehub/audi-tracking-service": "^1.2.2",
+    "@types/react-redux": "^7.1.24",
+    "@oneaudi/oneaudi-os-utils": "^5.1.1",
+    "@react-spring/web": "^9.5.5",
+    "@reduxjs/toolkit": "^1.8.3",
+    "geolib": "^3.3.3",
+    "lodash-es": "^4.17.21",
+    "lodash": "^4.17.21",
+    "luxon": "^3.4.3",
+    "rc-slider": "^10.0.0",
+    "focus-trap-react": "8.8.1",
+    "prompt-confirm": "^2.0.4",
+    "nyc": "^15.1.0",
+    "rc-scrollbars": "^1.1.5",
+    "react-is": "^18.3.1",
+    "react": "^18.3.1",
+    "react-collapse": "^5.1.1",
+    "react-dom": "^18.3.1",
+    "react-motion": "^0.5.2",
+    "react-responsive": "^9.0.0-beta.10",
+    "react-loading-skeleton": "^2.2.0",
+    "react-redux": "^8.0.2",
+    "react-spring": "^9.5.5",
+    "react-tiny-popover": "^7.1.0",
+    "react-tabs": "^4.2.1",
+    "redux": "^4.2.0",
+    "redux-actions": "^2.6.5",
+    "redux-mock-store": "^1.5.4",
+    "reselect": "^4.1.5",
+    "styled-components": "^5.3.11",
+    "swiper": "^6.7.5",
+    "@oneaudi/falcon-tools": "^3.0.0",
+    "@oneaudi/unified-web-common": "^1.0.3",
+    "@oneaudi/unified-web-components": "^1.0.3"
+  },
+  "featureApp": {
+    "port": 3000,
+    "excludeShares": []
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@cypress/webpack-preprocessor": "^6.0.2",
+    "@lhci/cli": "^0.14.0",
+    "@types/aws-lambda": "^8.10.115",
+    "@types/jest": "^29.5.3",
+    "@types/mochawesome": "^6.2.1",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-responsive": "^8.0.3",
+    "@types/react-tabs": "^2.3.4",
+    "@types/redux-mock-store": "^1.0.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@typescript-eslint/parser": "^8.9.0",
+    "@types/lodash": "^4.14.182",
+    "@types/luxon": "^3.3.2",
+    "@types/react-collapse": "^5.0.1",
+    "@types/react-motion": "^0.0.33",
+    "@types/redux-actions": "^2.6.2",
+    "@oneaudi/oneaudi-os-appstore-imgcheck": "^5.2.0",
+    "@oneaudi/oneaudi-os-build-scripts": "^5.5.5",
+    "@oneaudi/oneaudi-os-infrastructure": "^8.8.1",
+    "@oneaudi/falcon-tools": "^3.0.0",
+    "aws-cdk-lib": "^2.159.1",
+    "babel-loader": "^9.2.1",
+    "chalk": "^4.1.2",
+    "constructs": "^10.4.2",
+    "cypress": "^13.14.2",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "env-var": "^7.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-react-hooks-shallow": "^1.5.1",
+    "lint-staged": "^15.2.10",
+    "mochawesome-merge": "^4.3.0",
+    "node-watch": "^0.7.4",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "semver": "^7.6.3",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "typescript-plugin-styled-components": "^2.0.0",
+    "wait-on": "^7.0.1",
+    "yargs": "^17.7.2",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@oneaudi/fa-doc-renderer": "^5.2.4",
+    "@oneaudi/feature-hub-integrator-ssr": "^6.34.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "start-server-and-test": "^2.0.8",
+    "webpack-cli": "^5.1.4",
+    "@testing-library/dom": "^10.4.0",
+    "prompt-confirm": "^2.0.4"
+  },
+  "resolutions": {
+    "@types/mime": "3.0.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-case": [
+        0,
+        "always",
+        "pascal-case"
+      ]
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --config .eslintrc.js --fix"
+    ],
+    "*.{ts,tsx,json,js,jsx,html,yml,md,mdx}": [
+      "prettier --config .prettierrc.js --write"
+    ]
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

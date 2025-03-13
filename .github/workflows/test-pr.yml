@@ -1,0 +1,62 @@
+name: 'Test Pull Request'
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  coverage:
+    name: 'Test coverage'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Setup node
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd src/api && npm install
+
+      - name: Add test coverage report in PR
+        uses: ArtiomTr/jest-coverage-report-action@v2.3.1
+        with:
+          package-manager: npm
+          skip-step: install
+          annotations: none
+
+  bundle-size-check:
+    name: 'Bundle Size Check'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Setup node
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+
+      - name: Check bundle sizes
+        uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:fh'
+          pattern: './dist/app/fh/*.js'
