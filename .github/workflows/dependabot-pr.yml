@@ -57,7 +57,7 @@ jobs:
         run: npm run build
 
       - name: Automated acceptance test
-        uses: cypress-io/github-action@v6.7.15
+        uses: cypress-io/github-action@v6.7.16
         continue-on-error: true
         with:
           browser: chrome
