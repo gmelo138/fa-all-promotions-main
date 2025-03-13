@@ -68,7 +68,7 @@ jobs:
             ${{ runner.os }}-cypress
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm
@@ -247,7 +247,7 @@ jobs:
           ref: ${{ github.event.release.target_commitish }}
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm
@@ -303,7 +303,7 @@ jobs:
           ref: ${{ github.event.release.target_commitish }}
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm
@@ -376,7 +376,7 @@ jobs:
             ${{ runner.os }}-cypress
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm
@@ -452,7 +452,7 @@ jobs:
       #     name: lighthouse-report
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm

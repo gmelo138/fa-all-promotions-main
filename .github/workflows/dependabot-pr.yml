@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-cypress
 
       - name: Setup node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: '.nvmrc'
           cache: npm
